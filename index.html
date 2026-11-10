@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Ferti</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🌱 Smart Ferti</h1>
+    <h2>Fertilizer Recommendation System</h2>
+
+    <p>Get suitable fertilizer recommendations
+    for your crops.</p>
+
+    <label>Enter Crop Name:</label>
+    <input type="text" id="crop" placeholder="Example: Rice">
+
+    <label>Nitrogen (N):</label>
+    <input type="number" id="nitrogen">
+
+    <label>Phosphorus (P):</label>
+    <input type="number" id="phosphorus">
+
+    <label>Potassium (K):</label>
+    <input type="number" id="potassium">
+
+    <label>Soil pH:</label>
+    <input type="number" id="ph" step="0.1">
+
+    <button onclick="recommend()">Get Recommendation</button>
+
+    <h3 id="result"></h3>
+
+    <script src="script.js"></script>
+</body>
+</html>
