@@ -61,3 +61,16 @@ function changeLanguage() {
 }
 
 document.getElementById("language").addEventListener("change", changeLanguage);
+function changeLanguage() {
+    const language = document.getElementById("language").value;
+
+    if (language === "te") {
+        document.getElementById("title").innerText = "స్మార్ట్ ఎరువుల సిఫార్సు వ్యవస్థ";
+        document.getElementById("description").innerText = "మీ పంటలకు సరైన ఎరువుల సూచనలు పొందండి.";
+    } else {
+        document.getElementById("title").innerText = "Smart Fertilizer Recommendation System";
+        document.getElementById("description").innerText = "Get suitable fertilizer recommendations for your crops.";
+    }
+}
+
+document.getElementById("language").addEventListener("change", changeLanguage);
