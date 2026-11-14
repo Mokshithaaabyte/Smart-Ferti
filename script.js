@@ -43,6 +43,10 @@ function recommend() {
     </div>
 
     <p>Soil pH: ${ph}</p>
+<p>Soil Type: ${
+    ph < 6.5 ? "Acidic" :
+    ph <= 7.5 ? "Near Neutral" : "Alkaline"
+}</p>
     <p>Please consult a soil-testing expert for crop-specific fertilizer advice.</p>
 `;
 }
