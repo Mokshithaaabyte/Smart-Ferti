@@ -54,8 +54,27 @@ function changeLanguage() {
     const language = document.getElementById("language").value;
 
     if (language === "te") {
+        document.getElementById("cropLabel").innerText = "పంట పేరు నమోదు చేయండి:";
+document.getElementById("nitrogenLabel").innerText = "నత్రజని (N):";
+document.getElementById("phosphorusLabel").innerText = "భాస్వరం (P):";
+document.getElementById("potassiumLabel").innerText = "పొటాషియం (K):";
+document.getElementById("phLabel").innerText = "నేల pH:";
+document.getElementById("locationLabel").innerText = "మీ ప్రాంతం నమోదు చేయండి:";
+document.getElementById("recommendButton").innerText = "సిఫార్సు పొందండి";
         alert("తెలుగు భాష ఎంపిక చేయబడింది!");
     } else {
+        document.getElementById("title").innerText = "Smart Fertilizer Recommendation System";
+        document.getElementById("description").innerText = "Get suitable fertilizer recommendations for your crops.";
+
+        document.getElementById("cropLabel").innerText = "Enter Crop Name:";
+        document.getElementById("nitrogenLabel").innerText = "Nitrogen (N):";
+        document.getElementById("phosphorusLabel").innerText = "Phosphorus (P):";
+        document.getElementById("potassiumLabel").innerText = "Potassium (K):";
+        document.getElementById("phLabel").innerText = "Soil pH:";
+        document.getElementById("locationLabel").innerText = "Enter Your Location:";
+        document.getElementById("recommendButton").innerText = "Get Recommendation";
+    }
+}
         alert("English language selected!");
     }
 }
