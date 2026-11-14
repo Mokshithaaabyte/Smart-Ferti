@@ -91,3 +91,23 @@ button:hover {
 .result-box:empty {
     display: none;
 }
+.nutrient-card {
+    background-color: white;
+    border: 1px solid #c8e6c9;
+    border-left: 5px solid #2e7d32;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 12px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.nutrient-card h3 {
+    color: #176b35;
+    margin: 0 0 8px;
+}
+
+.nutrient-card p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
