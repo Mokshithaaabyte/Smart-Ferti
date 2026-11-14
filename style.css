@@ -111,3 +111,17 @@ button:hover {
     font-weight: bold;
     margin: 0;
 }
+.nutrient-card:nth-of-type(1) {
+    background-color: #ffebee;
+    border-left: 6px solid #e53935;
+}
+
+.nutrient-card:nth-of-type(2) {
+    background-color: #fff8e1;
+    border-left: 6px solid #f9a825;
+}
+
+.nutrient-card:nth-of-type(3) {
+    background-color: #e8f5e9;
+    border-left: 6px solid #43a047;
+}
