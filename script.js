@@ -50,3 +50,14 @@ function recommend() {
     <p>Please consult a soil-testing expert for crop-specific fertilizer advice.</p>
 `;
 }
+function changeLanguage() {
+    const language = document.getElementById("language").value;
+
+    if (language === "te") {
+        alert("తెలుగు భాష ఎంపిక చేయబడింది!");
+    } else {
+        alert("English language selected!");
+    }
+}
+
+document.getElementById("language").addEventListener("change", changeLanguage);
