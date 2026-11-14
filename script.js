@@ -23,5 +23,26 @@ function recommend() {
     result += "Soil pH: " + ph + "\n";
     result += "Please consult a soil-testing expert for a crop-specific fertilizer recommendation.";
 
-    document.getElementById("result").innerText = result;
+    document.getElementById("result").innerHTML = `
+    <h2>🌱 Soil Health Dashboard</h2>
+    <h3>Crop: ${crop}</h3>
+
+    <div class="nutrient-card">
+        <h3>Nitrogen (N)</h3>
+        <p>${nitrogen < 40 ? "Low" : nitrogen <= 80 ? "Medium" : "High"}</p>
+    </div>
+
+    <div class="nutrient-card">
+        <h3>Phosphorus (P)</h3>
+        <p>${phosphorus < 40 ? "Low" : phosphorus <= 80 ? "Medium" : "High"}</p>
+    </div>
+
+    <div class="nutrient-card">
+        <h3>Potassium (K)</h3>
+        <p>${potassium < 40 ? "Low" : potassium <= 80 ? "Medium" : "High"}</p>
+    </div>
+
+    <p>Soil pH: ${ph}</p>
+    <p>Please consult a soil-testing expert for crop-specific fertilizer advice.</p>
+`;
 }
