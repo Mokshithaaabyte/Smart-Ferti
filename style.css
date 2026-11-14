@@ -61,3 +61,18 @@ footer {
     text-align: center;
     padding: 20px;
 }
+button {
+    width: 100%;
+    background-color: #176b35;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #104d26;
+}
