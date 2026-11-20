@@ -1,4 +1,5 @@
 function recommend() {
+    alert("Recommendation button is working!");
     const crop = document.getElementById("crop").value;
     const nitrogen = Number(document.getElementById("nitrogen").value);
     const phosphorus = Number(document.getElementById("phosphorus").value);
