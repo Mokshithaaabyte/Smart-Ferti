@@ -4,16 +4,30 @@ function recommend() {
     const phosphorus = Number(document.getElementById("phosphorus").value);
     const potassium = Number(document.getElementById("potassium").value);
     const ph = Number(document.getElementById("ph").value);
+    const area = Number(document.getElementById("area").value);
+
+    const targets = {
+        Rice: 44,
+        Maize: 54,
+        Groundnut: 9,
+        Cotton: 44,
+        Chilli: 70,
+        Tomato: 50
+    };
 
     if (!crop ||
         document.getElementById("nitrogen").value === "" ||
         document.getElementById("phosphorus").value === "" ||
         document.getElementById("potassium").value === "" ||
         document.getElementById("ph").value === "" ||
-        ph < 0 || ph > 14) {
+        document.getElementById("area").value === "" ||
+        area <= 0 || ph < 0 || ph > 14) {
         alert("Please enter all details correctly.");
         return;
     }
+
+    const totalTargetN = targets[crop] * area;
+    const remainingN = Math.max(0, totalTargetN - nitrogen);
 
     document.getElementById("result").innerHTML = `
         <h2>🌱 Soil Health Dashboard</h2>
@@ -35,6 +49,12 @@ function recommend() {
         </div>
 
         <p>Soil pH: ${ph}</p>
+        <p>Land Area: ${area} acres</p>
+        <h3>Additional Nitrogen Calculation</h3>
+        <p>Target Nitrogen: ${totalTargetN.toFixed(2)} kg</p>
+        <p>Current Nitrogen: ${nitrogen} kg</p>
+        <p>Additional Nitrogen Required: ${remainingN.toFixed(2)} kg</p>
+
         <p>Soil Type: ${
             ph < 6.5 ? "Acidic" :
             ph <= 7.5 ? "Near Neutral" : "Alkaline"
