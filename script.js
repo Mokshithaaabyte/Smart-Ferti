@@ -117,3 +117,23 @@ function changeLanguage() {
 }
 
 document.getElementById("language").addEventListener("change", changeLanguage);
+function downloadReport() {
+    const result = document.getElementById("result").innerText;
+
+    if (!result.trim()) {
+        alert("Please get a fertilizer recommendation first!");
+        return;
+    }
+
+    const report = "SMART FERTI - FERTILIZER REPORT\n\n" + result;
+
+    const blob = new Blob([report], { type: "text/plain" });
+    const link = document.createElement("a");
+
+    link.href = URL.createObjectURL(blob);
+    link.download = "Smart-Ferti-Report.txt";
+
+    link.click();
+
+    URL.revokeObjectURL(link.href);
+}
