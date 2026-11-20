@@ -6,6 +6,9 @@ function recommend() {
     const ph = Number(document.getElementById("ph").value);
     const area = Number(document.getElementById("area").value);
 
+    const language = document.getElementById("language").value;
+    const te = language === "te";
+
     const targets = {
         Rice: 44,
         Maize: 54,
@@ -22,48 +25,63 @@ function recommend() {
         document.getElementById("ph").value === "" ||
         document.getElementById("area").value === "" ||
         area <= 0 || ph < 0 || ph > 14) {
-        alert("Please enter all details correctly.");
+        alert(te ? "దయచేసి అన్ని వివరాలను సరిగ్గా నమోదు చేయండి." :
+            "Please enter all details correctly.");
         return;
     }
 
     const totalTargetN = targets[crop] * area;
     const remainingN = Math.max(0, totalTargetN - nitrogen);
 
+    const low = te ? "తక్కువ" : "Low";
+    const medium = te ? "మధ్యస్థం" : "Medium";
+    const high = te ? "ఎక్కువ" : "High";
+
+    const soilType = ph < 6.5
+        ? (te ? "ఆమ్ల నేల" : "Acidic")
+        : ph <= 7.5
+        ? (te ? "తటస్థానికి దగ్గరగా" : "Near Neutral")
+        : (te ? "క్షార నేల" : "Alkaline");
+
     document.getElementById("result").innerHTML = `
-        <h2>🌱 Soil Health Dashboard</h2>
-        <h3>Crop: ${crop}</h3>
+        <h2>${te ? "🌱 నేల ఆరోగ్య డాష్‌బోర్డ్" : "🌱 Soil Health Dashboard"}</h2>
+
+        <h3>${te ? "పంట:" : "Crop:"} ${crop}</h3>
 
         <div class="nutrient-card">
-            <h3>Nitrogen (N)</h3>
-            <p>${nitrogen < 40 ? "Low" : nitrogen <= 80 ? "Medium" : "High"}</p>
+            <h3>${te ? "నత్రజని (N)" : "Nitrogen (N)"}</h3>
+            <p>${nitrogen < 40 ? low : nitrogen <= 80 ? medium : high}</p>
         </div>
 
         <div class="nutrient-card">
-            <h3>Phosphorus (P)</h3>
-            <p>${phosphorus < 40 ? "Low" : phosphorus <= 80 ? "Medium" : "High"}</p>
+            <h3>${te ? "భాస్వరం (P)" : "Phosphorus (P)"}</h3>
+            <p>${phosphorus < 40 ? low : phosphorus <= 80 ? medium : high}</p>
         </div>
 
         <div class="nutrient-card">
-            <h3>Potassium (K)</h3>
-            <p>${potassium < 40 ? "Low" : potassium <= 80 ? "Medium" : "High"}</p>
+            <h3>${te ? "పొటాషియం (K)" : "Potassium (K)"}</h3>
+            <p>${potassium < 40 ? low : potassium <= 80 ? medium : high}</p>
         </div>
 
-        <p>Soil pH: ${ph}</p>
-        <p>Land Area: ${area} acres</p>
-        <h3>Additional Nitrogen Calculation</h3>
-        <p>Target Nitrogen: ${totalTargetN.toFixed(2)} kg</p>
-        <p>Current Nitrogen: ${nitrogen} kg</p>
-        <p>Additional Nitrogen Required: ${remainingN.toFixed(2)} kg</p>
+        <p>${te ? "నేల pH:" : "Soil pH:"} ${ph}</p>
 
-        <p>Soil Type: ${
-            ph < 6.5 ? "Acidic" :
-            ph <= 7.5 ? "Near Neutral" : "Alkaline"
-        }</p>
+        <p>${te ? "భూమి విస్తీర్ణం:" : "Land Area:"} ${area} ${te ? "ఎకరాలు" : "acres"}</p>
 
-        <p>Please consult a soil-testing expert for crop-specific fertilizer advice.</p>
+        <h3>${te ? "అదనపు నత్రజని లెక్కింపు" : "Additional Nitrogen Calculation"}</h3>
+
+        <p>${te ? "లక్ష్య నత్రజని:" : "Target Nitrogen:"} ${totalTargetN.toFixed(2)} kg</p>
+
+        <p>${te ? "ప్రస్తుత నత్రజని:" : "Current Nitrogen:"} ${nitrogen} kg</p>
+
+        <p>${te ? "అవసరమైన అదనపు నత్రజని:" : "Additional Nitrogen Required:"} ${remainingN.toFixed(2)} kg</p>
+
+        <p>${te ? "నేల రకం:" : "Soil Type:"} ${soilType}</p>
+
+        <p>${te
+            ? "పంటకు తగిన ఎరువుల సలహా కోసం నేల పరీక్ష నిపుణుడిని సంప్రదించండి."
+            : "Please consult a soil-testing expert for crop-specific fertilizer advice."}</p>
     `;
 }
-
 function changeLanguage() {
     const language = document.getElementById("language").value;
 
