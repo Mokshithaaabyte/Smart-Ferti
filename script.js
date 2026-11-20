@@ -31,8 +31,13 @@ const targets = {
         return;
     }
 
-    const totalTargetN = targets[crop] * area;
-    const remainingN = Math.max(0, totalTargetN - nitrogen);
+const totalTargetN = targets[crop].n * area;
+const totalTargetP = targets[crop].p * area;
+const totalTargetK = targets[crop].k * area;
+
+const remainingN = Math.max(0, totalTargetN - nitrogen);
+const remainingP = Math.max(0, totalTargetP - phosphorus);
+const remainingK = Math.max(0, totalTargetK - potassium);
 
     const low = te ? "తక్కువ" : "Low";
     const medium = te ? "మధ్యస్థం" : "Medium";
@@ -68,14 +73,16 @@ const targets = {
 
         <p>${te ? "భూమి విస్తీర్ణం:" : "Land Area:"} ${area} ${te ? "ఎకరాలు" : "acres"}</p>
 
-        <h3>${te ? "అదనపు నత్రజని లెక్కింపు" : "Additional Nitrogen Calculation"}</h3>
+<h3>${te ? "ఎరువుల లెక్కింపు" : "Fertilizer Calculation"}</h3>
 
-        <p>${te ? "లక్ష్య నత్రజని:" : "Target Nitrogen:"} ${totalTargetN.toFixed(2)} kg</p>
+<p>${te ? "లక్ష్య నత్రజని:" : "Target Nitrogen:"} ${totalTargetN.toFixed(2)} kg</p>
+<p>${te ? "అదనపు నత్రజని అవసరం:" : "Additional Nitrogen Required:"} ${remainingN.toFixed(2)} kg</p>
 
-        <p>${te ? "ప్రస్తుత నత్రజని:" : "Current Nitrogen:"} ${nitrogen} kg</p>
+<p>${te ? "లక్ష్య భాస్వరం:" : "Target Phosphorus:"} ${totalTargetP.toFixed(2)} kg</p>
+<p>${te ? "అదనపు భాస్వరం అవసరం:" : "Additional Phosphorus Required:"} ${remainingP.toFixed(2)} kg</p>
 
-        <p>${te ? "అవసరమైన అదనపు నత్రజని:" : "Additional Nitrogen Required:"} ${remainingN.toFixed(2)} kg</p>
-
+<p>${te ? "లక్ష్య పొటాషియం:" : "Target Potassium:"} ${totalTargetK.toFixed(2)} kg</p>
+<p>${te ? "అదనపు పొటాషియం అవసరం:" : "Additional Potassium Required:"} ${remainingK.toFixed(2)} kg</p>
         <p>${te ? "నేల రకం:" : "Soil Type:"} ${soilType}</p>
 
         <p>${te
