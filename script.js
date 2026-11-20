@@ -81,7 +81,7 @@ document.getElementById("recommendButton").innerText = "సిఫార్సు
 }
 
 document.getElementById("language").addEventListener("change", changeLanguage);
-function changeLanguage() {
+
     const language = document.getElementById("language").value;
 
     if (language === "te") {
