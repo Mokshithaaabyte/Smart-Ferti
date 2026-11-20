@@ -137,3 +137,51 @@ function downloadReport() {
 
     URL.revokeObjectURL(link.href);
 }
+function startVoiceInput(fieldId) {
+    const SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+        alert("Voice input is not supported in this browser. Try Chrome.");
+        return;
+    }
+
+    const recognition = new SpeechRecognition();
+
+    const language = document.getElementById("language").value;
+    recognition.lang = language === "te" ? "te-IN" : "en-IN";
+
+    recognition.onresult = function(event) {
+        let spokenText = event.results[0][0].transcript.trim();
+
+        const teluguCrops = {
+            "వరి": "Rice",
+            "మొక్కజొన్న": "Maize",
+            "వేరుశెనగ": "Groundnut",
+            "పత్తి": "Cotton",
+            "మిరప": "Chilli",
+            "టమాట": "Tomato"
+        };
+
+        if (fieldId === "crop") {
+            spokenText = teluguCrops[spokenText] || spokenText;
+
+            const cropField = document.getElementById("crop");
+            const option = [...cropField.options].find(
+                item => item.value.toLowerCase() === spokenText.toLowerCase()
+            );
+
+            if (option) {
+                cropField.value = option.value;
+            } else {
+                alert("Crop not recognised. Please try again.");
+            }
+        }
+    };
+
+    recognition.onerror = function() {
+        alert("Voice input failed. Please try again.");
+    };
+
+    recognition.start();
+}
