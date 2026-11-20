@@ -1,4 +1,3 @@
-
 function recommend() {
     const crop = document.getElementById("crop").value;
     const nitrogen = Number(document.getElementById("nitrogen").value);
@@ -44,22 +43,23 @@ function recommend() {
         <p>Please consult a soil-testing expert for crop-specific fertilizer advice.</p>
     `;
 }
+
 function changeLanguage() {
     const language = document.getElementById("language").value;
 
     if (language === "te") {
+        document.getElementById("title").innerText = "స్మార్ట్ ఎరువుల సిఫార్సు వ్యవస్థ";
+        document.getElementById("description").innerText = "మీ పంటలకు సరైన ఎరువుల సూచనలు పొందండి.";
         document.getElementById("cropLabel").innerText = "పంట పేరు నమోదు చేయండి:";
-document.getElementById("nitrogenLabel").innerText = "నత్రజని (N):";
-document.getElementById("phosphorusLabel").innerText = "భాస్వరం (P):";
-document.getElementById("potassiumLabel").innerText = "పొటాషియం (K):";
-document.getElementById("phLabel").innerText = "నేల pH:";
-document.getElementById("locationLabel").innerText = "మీ ప్రాంతం నమోదు చేయండి:";
-document.getElementById("recommendButton").innerText = "సిఫార్సు పొందండి";
-        alert("తెలుగు భాష ఎంపిక చేయబడింది!");
+        document.getElementById("nitrogenLabel").innerText = "నత్రజని (N):";
+        document.getElementById("phosphorusLabel").innerText = "భాస్వరం (P):";
+        document.getElementById("potassiumLabel").innerText = "పొటాషియం (K):";
+        document.getElementById("phLabel").innerText = "నేల pH:";
+        document.getElementById("locationLabel").innerText = "మీ ప్రాంతం నమోదు చేయండి:";
+        document.getElementById("recommendButton").innerText = "సిఫార్సు పొందండి";
     } else {
         document.getElementById("title").innerText = "Smart Fertilizer Recommendation System";
         document.getElementById("description").innerText = "Get suitable fertilizer recommendations for your crops.";
-
         document.getElementById("cropLabel").innerText = "Enter Crop Name:";
         document.getElementById("nitrogenLabel").innerText = "Nitrogen (N):";
         document.getElementById("phosphorusLabel").innerText = "Phosphorus (P):";
@@ -67,22 +67,6 @@ document.getElementById("recommendButton").innerText = "సిఫార్సు
         document.getElementById("phLabel").innerText = "Soil pH:";
         document.getElementById("locationLabel").innerText = "Enter Your Location:";
         document.getElementById("recommendButton").innerText = "Get Recommendation";
-    }
-}
-        alert("English language selected!");
-    }
-}
-
-document.getElementById("language").addEventListener("change", changeLanguage);
-
-    const language = document.getElementById("language").value;
-
-    if (language === "te") {
-        document.getElementById("title").innerText = "స్మార్ట్ ఎరువుల సిఫార్సు వ్యవస్థ";
-        document.getElementById("description").innerText = "మీ పంటలకు సరైన ఎరువుల సూచనలు పొందండి.";
-    } else {
-        document.getElementById("title").innerText = "Smart Fertilizer Recommendation System";
-        document.getElementById("description").innerText = "Get suitable fertilizer recommendations for your crops.";
     }
 }
 
