@@ -9,14 +9,15 @@ function recommend() {
     const language = document.getElementById("language").value;
     const te = language === "te";
 
-    const targets = {
-        Rice: 44,
-        Maize: 54,
-        Groundnut: 9,
-        Cotton: 44,
-        Chilli: 70,
-        Tomato: 50
-    };
+const targets = {
+    Rice: { n: 44, p: 22, k: 22 },
+    Maize: { n: 54, p: 27, k: 20 },
+    Groundnut: { n: 9, p: 18, k: 18 },
+    Cotton: { n: 44, p: 22, k: 22 },
+    Chilli: { n: 70, p: 28, k: 28 },
+    Tomato: { n: 50, p: 28, k: 32 }
+};
+    
 
     if (!crop ||
         document.getElementById("nitrogen").value === "" ||
