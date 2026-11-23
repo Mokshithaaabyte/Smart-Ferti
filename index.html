@@ -53,10 +53,33 @@
     <button id="recommendButton" onclick="recommend()">Get Recommendation</button>
     <button onclick="downloadReport()">Download Report</button>
 
-    <div id="result" class="result-box">
+    <div id="result" 
+        class="result-box">
     <h2>🌱 Soil Health Dashboard</h2>
     <p>Your soil analysis will appear here.</p>
 </div>
+   <section class="disease-scanner">
+    <h2>🌿 AI Crop Disease Scanner</h2>
+
+    <p>Scan a crop leaf or upload a photo to check for possible diseases.</p>
+
+    <h3>📷 Scan with Camera</h3>
+    <input type="file" id="cameraInput"
+        accept="image/*" capture="environment">
+
+    <h3>🖼️ Upload Crop Photo</h3>
+    <input type="file" id="uploadInput"
+        accept="image/*">
+
+    <img id="cropPreview"
+        style="display:none; width:250px; margin-top:15px;">
+
+    <button type="button" onclick="analyzeCrop()">
+        🔍 Check Crop Disease
+    </button>
+
+    <div id="diseaseResult"></div>
+</section> 
 
     
     <script src="script.js"></script>
