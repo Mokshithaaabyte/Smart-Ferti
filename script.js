@@ -185,3 +185,23 @@ function startVoiceInput(fieldId) {
 
     recognition.start();
 }
+function previewCropImage(event) {
+    const file = event.target.files[0];
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+        alert("Please select an image.");
+        return;
+    }
+
+    const preview = document.getElementById("cropPreview");
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = "block";
+}
+
+document.getElementById("cameraInput")
+    .addEventListener("change", previewCropImage);
+
+document.getElementById("uploadInput")
+    .addEventListener("change", previewCropImage);
