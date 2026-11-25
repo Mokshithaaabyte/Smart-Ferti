@@ -159,13 +159,31 @@ function startVoiceInput(fieldId) {
         let spokenText = event.results[0][0].transcript.trim();
 
         const teluguCrops = {
-            "వరి": "Rice",
-            "మొక్కజొన్న": "Maize",
-            "వేరుశెనగ": "Groundnut",
-            "పత్తి": "Cotton",
-            "మిరప": "Chilli",
-            "టమాట": "Tomato"
-        };
+const teluguCrops = {
+    "వరి": "Rice",
+    "మొక్కజొన్న": "Maize",
+    "వేరుశెనగ": "Groundnut",
+    "పత్తి": "Cotton",
+    "మిరప": "Chilli",
+    "టమాట": "Tomato",
+    "గోధుమ": "Wheat",
+    "చెరకు": "Sugarcane",
+    "బంగాళాదుంప": "Potato",
+    "ఉల్లిపాయ": "Onion",
+    "వంకాయ": "Brinjal",
+    "బెండకాయ": "Okra",
+    "సోయాబీన్": "Soybean",
+    "పొద్దుతిరుగుడు": "Sunflower",
+    "ఆవాలు": "Mustard",
+    "సజ్జలు": "Millet",
+    "జొన్న": "Sorghum",
+    "అరటి": "Banana",
+    "మామిడి": "Mango",
+    "కొబ్బరి": "Coconut",
+    "పసుపు": "Turmeric",
+    "అల్లం": "Ginger",
+    "బొప్పాయి": "Papaya"
+};
 
         if (fieldId === "crop") {
             spokenText = teluguCrops[spokenText] || spokenText;
