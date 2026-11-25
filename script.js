@@ -99,6 +99,43 @@ const remainingK = Math.max(0, totalTargetK - potassium);
 }
 function changeLanguage() {
     const language = document.getElementById("language").value;
+    const crop = document.getElementById("crop");
+
+    const cropNames = {
+        Rice: "వరి",
+        Maize: "మొక్కజొన్న",
+        Groundnut: "వేరుశెనగ",
+        Cotton: "పత్తి",
+        Chilli: "మిరప",
+        Tomato: "టమాట",
+        Wheat: "గోధుమ",
+        Sugarcane: "చెరకు",
+        Potato: "బంగాళాదుంప",
+        Onion: "ఉల్లిపాయ",
+        Brinjal: "వంకాయ",
+        Okra: "బెండకాయ",
+        Soybean: "సోయాబీన్",
+        Sunflower: "పొద్దుతిరుగుడు",
+        Mustard: "ఆవాలు",
+        Millet: "సజ్జలు",
+        Sorghum: "జొన్న",
+        Banana: "అరటి",
+        Mango: "మామిడి",
+        Coconut: "కొబ్బరి",
+        Turmeric: "పసుపు",
+        Ginger: "అల్లం",
+        Papaya: "బొప్పాయి"
+    };
+
+    for (let option of crop.options) {
+        if (option.value === "") {
+            option.text = language === "te" ? "పంటను ఎంచుకోండి" : "Select Crop";
+        } else {
+            option.text = language === "te"
+                ? cropNames[option.value]
+                : option.value;
+        }
+    }
 
     if (language === "te") {
         document.getElementById("title").innerText = "స్మార్ట్ ఎరువుల సిఫార్సు వ్యవస్థ";
@@ -122,7 +159,6 @@ function changeLanguage() {
         document.getElementById("recommendButton").innerText = "Get Recommendation";
     }
 }
-
 document.getElementById("language").addEventListener("change", changeLanguage);
 function downloadReport() {
     const result = document.getElementById("result").innerText;
