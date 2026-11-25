@@ -161,7 +161,7 @@ function startVoiceInput(fieldId) {
     recognition.onresult = function(event) {
         let spokenText = event.results[0][0].transcript.trim();
 
-        const teluguCrops = {
+    
 const teluguCrops = {
     "వరి": "Rice",
     "మొక్కజొన్న": "Maize",
