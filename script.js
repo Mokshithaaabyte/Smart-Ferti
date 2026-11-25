@@ -34,7 +34,10 @@ const targets = {
             "Please enter all details correctly.");
         return;
     }
-
+if (!targets[crop]) {
+    alert("Fertilizer data is not available for this crop yet.");
+    return;
+}
 const totalTargetN = targets[crop].n * area;
 const totalTargetP = targets[crop].p * area;
 const totalTargetK = targets[crop].k * area;
