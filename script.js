@@ -17,7 +17,11 @@ const targets = {
     Chilli: { n: 70, p: 28, k: 28 },
     Tomato: { n: 50, p: 28, k: 32 }
 };
-    
+ if (targets[crop] === undefined) {
+    document.getElementById("result").innerHTML =
+        "Fertilizer recommendation data is not available for this crop yet.";
+    return;
+}   
 
     if (!crop ||
         document.getElementById("nitrogen").value === "" ||
