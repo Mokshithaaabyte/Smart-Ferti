@@ -262,3 +262,4 @@ document.getElementById("cameraInput")
 
 document.getElementById("uploadInput")
     .addEventListener("change", previewCropImage);
+// Smart Ferti update
